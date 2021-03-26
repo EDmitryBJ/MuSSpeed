@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId "com.nibble.musspeed"
         minSdkVersion 23
-        targetSdkVersion 30
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
 
@@ -24,8 +24,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility kotlin_version
+        targetCompatibility kotlin_version
     }
     kotlinOptions {
         jvmTarget = '1.8'
