@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nibble.musspeed">
+
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MuSSpeed">
-        <activity android:name=".MainActivity">
+        <activity android:name=".PathRunActivity" />
+        <activity android:name=".WorkoutSelectionActivity" />
+        <activity android:name=".PathSelectionActivity" />
+        <activity android:name=".MusicSelectionActivity"/>
+        <activity
+            android:name=".BodySelectionActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title"
+            android:theme="@style/Theme.MuSSpeed.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,4 +27,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>
