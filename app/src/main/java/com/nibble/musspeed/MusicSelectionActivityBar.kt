@@ -8,5 +8,6 @@ class MusicSelectionActivityBar : AppCompatActivityWithMenuBar() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_music_selection)
         initializeMenuBar()
+
     }
 }
