@@ -11,12 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MuSSpeed">
-        <activity android:name=".PathRunActivity" />
-        <activity android:name=".WorkoutSelectionActivity" />
-        <activity android:name=".PathSelectionActivity" />
-        <activity android:name=".MusicSelectionActivity"/>
+        <activity android:name=".PathRunActivityBar" />
+        <activity android:name=".WorkoutSelectionActivityBar" />
+        <activity android:name=".PathSelectionActivityBar" />
+        <activity android:name=".MusicSelectionActivityBar"/>
         <activity
-            android:name=".BodySelectionActivity"
+            android:name=".BodySelectionActivityBar"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title"
             android:theme="@style/Theme.MuSSpeed.Fullscreen">
