@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="spartan" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:fontFamily">@font/spartan</item>
+    </style>
+    <style name="roboto" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+    <style name="roboto_thin" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:fontFamily">@font/roboto_thin</item>
+    </style>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/design_default_color_primary</item>
+        <item name="colorPrimaryDark">@color/design_default_color_primary_dark</item>
+    </style>
+    <style name="Widget.Theme.MuSSpeed.ActionBar.Fullscreen" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
+    </style>
+
+    <style name="Widget.Theme.MuSSpeed.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+    </style>
+</resources>

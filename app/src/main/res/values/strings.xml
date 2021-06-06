@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MuSSpeed</string>
+    <string name="title_activity_body_selection">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_music_selection">FullscreenActivity</string>
+    <string name="title">MuSSpeed</string>
 </resources>

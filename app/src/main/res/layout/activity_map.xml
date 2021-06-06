@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Map">
+
+    <ImageView
+        android:layout_width="338dp"
+        android:layout_height="512dp"
+        android:layout_marginTop="44dp"
+        android:gravity="center"
+        android:src="@drawable/music_back_rectangle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        style="@style/roboto"
+        android:layout_width="305dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="44dp"
+        android:gravity="center"
+        android:text="Выберите маршрут"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="245dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginLeft="42dp"
+        android:layout_marginTop="85dp"
+        android:src="@drawable/rectangle_rounded_as_fuck"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="245dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginLeft="42dp"
+        android:layout_marginTop="134dp"
+        android:src="@drawable/rectangle_rounded_as_fuck"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="52dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="293dp"
+        android:layout_marginLeft="293dp"
+        android:layout_marginTop="87dp"
+        android:src="@drawable/rectangle_rounded_as_fuck"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/make_rout"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="299dp"
+        android:layout_marginLeft="299dp"
+        android:layout_marginTop="110dp"
+        android:background="#0000"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_routes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:backgroundTint="@android:color/transparent"
+        android:id="@+id/input_start"
+        style="@style/roboto_thin"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="85dp"
+        android:gravity="start"
+        android:text="Начальная точка"
+        android:textColor="#949494"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:backgroundTint="@android:color/transparent"
+        android:id="@+id/input_finish"
+        style="@style/roboto_thin"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="139dp"
+        android:gravity="start"
+        android:text="Конечная точка"
+        android:textColor="#949494"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/start_dot_delete"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="256dp"
+        android:layout_marginLeft="256dp"
+        android:layout_marginTop="96dp"
+        android:background="#0000"
+        android:src="@drawable/ic_del"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/end_dot_delete"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="256dp"
+        android:layout_marginLeft="256dp"
+        android:layout_marginTop="146dp"
+        android:background="#0000"
+        android:src="@drawable/ic_del"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="336dp"
+        android:layout_height="345dp"
+        android:layout_marginTop="184dp"
+        android:gravity="center"
+        android:src="@drawable/music_back_rectangle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="171dp"
+        android:layout_marginTop="608dp"
+        android:src="@drawable/rectangle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/music"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="622dp"
+        android:adjustViewBounds="true"
+        android:background="#0000"
+        android:scaleType="fitCenter"
+        android:src="@drawable/note"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/training"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="320dp"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="613dp"
+        android:background="#0000"
+        android:scaleType="fitCenter"
+        android:src="@drawable/svistok"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/map"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="243dp"
+        android:layout_marginLeft="243dp"
+        android:layout_marginTop="620dp"
+        android:background="#0000"
+        android:scaleType="fitCenter"
+        android:src="@drawable/map_light"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/profile"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="624dp"
+        android:background="#0000"
+        android:scaleType="fitCenter"
+        android:src="@drawable/human"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="568dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/mini_rectangle_disactive" />
+
+    <ImageButton
+        android:background="#0000"
+        android:id="@+id/run_button"
+        android:layout_width="93dp"
+        android:layout_height="83dp"
+        android:layout_marginTop="568dp"
+        android:layout_marginEnd="150dp"
+        android:layout_marginRight="150dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/sport"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.993"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
