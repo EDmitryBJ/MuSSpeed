@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "266780956269",
+    "project_id": "musspeed-bd843",
+    "storage_bucket": "musspeed-bd843.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:266780956269:android:d220bd8c618bee4c8f9164",
+        "android_client_info": {
+          "package_name": "com.nibble.musspeed"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "266780956269-9f4f9qrr07ihjg0s2p60ulj97k1p5sbr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQOvgMl4fdD_X_asDrWYO3IramsTvAujc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "266780956269-9f4f9qrr07ihjg0s2p60ulj97k1p5sbr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
