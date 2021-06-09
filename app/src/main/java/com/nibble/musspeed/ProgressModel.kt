@@ -3,6 +3,7 @@ package com.nibble.musspeed
 import android.media.MediaPlayer
 import android.os.Handler
 import android.os.Looper
+import android.webkit.WebView
 import android.widget.ImageButton
 import android.widget.SeekBar
 import android.widget.TextView
@@ -14,11 +15,13 @@ class ProgressModel : Model{
     private lateinit var title:TextView
     private val mediaPlayer = MediaPlayer()
     private lateinit var musicService: MusicService
+    lateinit var webView: WebView
 
     override fun OpenWindow(mainActivity: MainActivity) {
         mainActivity.setContentView(R.layout.progress)
         mainActivity.initNavBar()
         initButtons(mainActivity)
+        initMap(mainActivity)
     }
 
     override fun CloseWindow(mainActivity: MainActivity) {
@@ -72,5 +75,11 @@ class ProgressModel : Model{
     private fun setTrackTitle(name:String, mainActivity: MainActivity){
         title = mainActivity.findViewById(R.id.track_title)
         title.text = name
+    }
+
+    private fun initMap(mainActivity: MainActivity){
+        webView = mainActivity.findViewById(R.id.webView)
+        webView.settings.javaScriptEnabled = true
+        webView.loadUrl("file:///android_asset/index.html")
     }
 }
