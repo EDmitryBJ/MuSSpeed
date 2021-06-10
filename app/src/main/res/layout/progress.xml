@@ -10,6 +10,7 @@
         android:id="@+id/webView"
         android:layout_width="390dp"
         android:layout_height="385dp"
+        android:layout_marginTop="5dp"
         android:gravity="center"
         android:src="@drawable/music_back_rectangle"
         app:layout_constraintEnd_toEndOf="parent"
@@ -17,170 +18,178 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView4"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="421dp"
-        android:layout_marginTop="392dp"
-        android:src="@drawable/rectangle"
+        android:layout_height="340dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
 
-    <ImageButton
-        android:id="@+id/training"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="328dp"
-        android:layout_marginTop="416dp"
-        android:background="#0000"
-        android:scaleType="fitCenter"
-        android:src="@drawable/svistok"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="310dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/rectangle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <ImageButton
-        android:id="@+id/music"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="424dp"
-        android:adjustViewBounds="true"
-        android:background="#0000"
-        android:scaleType="fitCenter"
-        android:src="@drawable/note"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/rectangle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/map"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="248dp"
-        android:layout_marginTop="424dp"
-        android:background="#0000"
-        android:scaleType="fitCenter"
-        android:src="@drawable/map_light"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <ImageButton
+                android:id="@+id/music"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:adjustViewBounds="true"
+                android:background="#0000"
+                android:scaleType="fitCenter"
+                android:src="@drawable/note"
+                app:layout_constraintStart_toEndOf="@+id/profile"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/profile"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="428dp"
-        android:background="#0000"
-        android:scaleType="fitCenter"
-        android:src="@drawable/human"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <ImageButton
+                android:id="@+id/training"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="#0000"
+                android:scaleType="fitCenter"
+                android:src="@drawable/svistok"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="156dp"
-        android:layout_marginTop="360dp"
-        app:layout_constraintEnd_toEndOf="@+id/run_button"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/mini_rectangle" />
+            <ImageButton
+                android:id="@+id/profile"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:background="#0000"
+                android:scaleType="fitCenter"
+                android:src="@drawable/human"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/run_button"
-        android:layout_width="93dp"
-        android:layout_height="83dp"
-        android:layout_marginEnd="151dp"
-        android:background="#0000"
-        android:scaleType="fitCenter"
-        android:src="@drawable/sport"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+            <ImageButton
+                android:id="@+id/map"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="#0000"
+                android:scaleType="fitCenter"
+                android:src="@drawable/map"
+                app:layout_constraintEnd_toStartOf="@+id/training"
+                app:layout_constraintTop_toTopOf="parent" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="225dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
 
-    <ImageButton
-        android:id="@+id/next"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="648dp"
-        android:background="#0000"
-        android:scaleType="fitCenter"
-        android:src="@drawable/next"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.672"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/track_title3"
+                    android:layout_width="250dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="Прогресс пути"
+                    android:textColor="@color/green"
+                    android:textSize="20sp"
+                    tools:visibility="visible" />
 
-    <ImageButton
-        android:id="@+id/stop"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="648dp"
-        android:background="@color/green"
-        android:scaleType="fitCenter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.317"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                <SeekBar
+                    android:id="@+id/seekBar"
+                    style="@style/Widget.AppCompat.SeekBar.Discrete"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:max="30"
+                    android:progress="0" />
 
-    <TextView
-        android:id="@+id/track_title"
-        android:layout_width="250dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="560dp"
-        android:gravity="center"
-        android:text="Music title"
-        android:textColor="@color/green"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
+                <TextView
+                    android:id="@+id/track_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text='Нажмите "next", чтобы начать маршрут'
+                    android:textColor="@color/green"
+                    android:textSize="20sp"
+                    tools:visibility="visible" />
 
-    <TextView
-        android:id="@+id/track_title3"
-        android:layout_width="250dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="480dp"
-        android:gravity="center"
-        android:text="Path progress"
-        android:textColor="@color/green"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
+                <SeekBar
+                    android:id="@+id/music_progress"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="5dp"
+                    tools:visibility="visible" />
 
-    <SeekBar
-        android:id="@+id/music_progress"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginHorizontal="5dp"
-        android:layout_marginTop="600dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/webView"
-        tools:visibility="visible" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-    <SeekBar
-        android:id="@+id/seekBar"
-        style="@style/Widget.AppCompat.SeekBar.Discrete"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginTop="517dp"
-        android:max="10"
-        android:progress="3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                    <ImageButton
+                        android:layout_margin="10dp"
+                        android:padding="20dp"
+                        android:id="@+id/stop"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@color/green"
+                        android:scaleType="fitCenter" />
+
+                    <ImageButton
+                        android:layout_margin="10dp"
+                        android:id="@+id/next"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:background="#0000"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/next" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/mini_rectangle" />
+
+        <ImageButton
+            android:id="@+id/run_button"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="#0000"
+            android:scaleType="fitCenter"
+            android:src="@drawable/sport"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

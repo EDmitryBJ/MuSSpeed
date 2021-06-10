@@ -5,7 +5,12 @@ import android.view.Window
 import android.view.WindowManager
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.google.firebase.FirebaseApp
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
+
 
 class MainActivity : AppCompatActivity() {
     lateinit var btnToRun : ImageButton
@@ -22,6 +27,14 @@ class MainActivity : AppCompatActivity() {
     var currentMusicSpeed: Int = 0
     var late: Boolean = false
     lateinit var currentModel: Model
+    var SelectedMusicTypes = mutableListOf(
+        "Alternative",
+        "Hip-hop.rap",
+        "Indie",
+        "Pop",
+        "Rock"
+    )
+    val Storage = Firebase.storage
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,14 +47,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.profile_settings)
         currentModel = ProfileModel()
         currentModel.OpenWindow(this)
-        initNavBar()
+        InitNavBar()
     }
 
-    fun initNavBar(){
+    fun InitNavBar(){
         btnToRun = findViewById(R.id.run_button)
         btnToRun.setOnClickListener {
             currentModel.CloseWindow(this)
-            setContentView(R.layout.progress)
             currentModel = ProgressModel()
             currentModel.OpenWindow(this)
         }
@@ -49,7 +61,6 @@ class MainActivity : AppCompatActivity() {
         btnToMap = findViewById(R.id.map)
         btnToMap.setOnClickListener {
             currentModel.CloseWindow(this)
-            setContentView(R.layout.path_selection)
             currentModel = MapModel()
             currentModel.OpenWindow(this)
         }
@@ -57,7 +68,6 @@ class MainActivity : AppCompatActivity() {
         btnToBody = findViewById(R.id.profile)
         btnToBody.setOnClickListener {
             currentModel.CloseWindow(this)
-            setContentView(R.layout.profile_settings)
             currentModel = ProfileModel()
             currentModel.OpenWindow(this)
         }
@@ -65,7 +75,6 @@ class MainActivity : AppCompatActivity() {
         btnToMus = findViewById(R.id.music)
         btnToMus.setOnClickListener {
             currentModel.CloseWindow(this)
-            setContentView(R.layout.music_selection)
             currentModel = MusicModel()
             currentModel.OpenWindow(this)
         }
@@ -73,7 +82,6 @@ class MainActivity : AppCompatActivity() {
         btnToWorkout = findViewById(R.id.training)
         btnToWorkout.setOnClickListener {
             currentModel.CloseWindow(this)
-            setContentView(R.layout.training_selection)
             currentModel = TrainingModel()
             currentModel.OpenWindow(this)
         }

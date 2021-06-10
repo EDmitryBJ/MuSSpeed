@@ -6,138 +6,168 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:layout_width="344dp"
-        android:layout_height="266dp"
-        android:layout_marginTop="44dp"
-        android:gravity="center"
-        android:src="@drawable/music_back_rectangle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:layout_width="344dp"
-        android:layout_height="286dp"
-        android:layout_marginTop="232dp"
-        android:gravity="center"
-        android:src="@drawable/music_front_rectangle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        style="@style/roboto"
-        android:layout_width="262dp"
-        android:layout_height="238dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="48dp"
-        android:text="Добавьте жанр музыки"
-        android:textSize="48sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/plus_janre"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_marginStart="252dp"
-        android:layout_marginLeft="252dp"
-        android:layout_marginTop="96dp"
-        android:background="#0000"
-        android:src="@drawable/ic_plus"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="171dp"
-        android:layout_marginTop="608dp"
-        android:src="@drawable/rectangle"
+        android:layout_height="140dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
 
-    <ImageButton
-        android:id="@+id/music"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="622dp"
-        android:adjustViewBounds="true"
-        android:background="#0000"
-        android:scaleType="fitCenter"
-        android:src="@drawable/note_light"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/rectangle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <ImageButton
-        android:id="@+id/training"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="320dp"
-        android:layout_marginLeft="320dp"
-        android:layout_marginTop="613dp"
-        android:background="#0000"
-        android:scaleType="fitCenter"
-        android:src="@drawable/svistok"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/rectangle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/map"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="243dp"
-        android:layout_marginLeft="243dp"
-        android:layout_marginTop="620dp"
-        android:background="#0000"
-        android:scaleType="fitCenter"
-        android:src="@drawable/map"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <ImageButton
+                android:id="@+id/music"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:adjustViewBounds="true"
+                android:background="#0000"
+                android:scaleType="fitCenter"
+                android:src="@drawable/note_light"
+                app:layout_constraintStart_toEndOf="@+id/profile"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/profile"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="624dp"
-        android:background="#0000"
-        android:scaleType="fitCenter"
-        android:src="@drawable/human"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <ImageButton
+                android:id="@+id/training"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="#0000"
+                android:scaleType="fitCenter"
+                android:src="@drawable/svistok"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="568dp"
+            <ImageButton
+                android:id="@+id/profile"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:background="#0000"
+                android:scaleType="fitCenter"
+                android:src="@drawable/human"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/map"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="#0000"
+                android:scaleType="fitCenter"
+                android:src="@drawable/map"
+                app:layout_constraintEnd_toStartOf="@+id/training"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/mini_rectangle_disactive" />
+
+        <ImageButton
+            android:id="@+id/run_button"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="#0000"
+            android:scaleType="fitCenter"
+            android:src="@drawable/sport"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/mini_rectangle_disactive" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageButton
-        android:background="#0000"
-        android:id="@+id/run_button"
-        android:layout_width="93dp"
-        android:layout_height="83dp"
-        android:layout_marginTop="568dp"
-        android:layout_marginEnd="150dp"
-        android:layout_marginRight="150dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/sport"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.993"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <CheckBox
+            android:id="@+id/alternative_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:checked="true"
+            android:clickable="true"
+            android:focusable="auto"
+            android:padding="10dp"
+            android:text="Alternative"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <CheckBox
+            android:id="@+id/hiphop_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:checked="true"
+            android:clickable="true"
+            android:focusable="auto"
+            android:padding="10dp"
+            android:text="Hip-Hop/Rap"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <CheckBox
+            android:id="@+id/indie_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:checked="true"
+            android:clickable="true"
+            android:focusable="auto"
+            android:padding="10dp"
+            android:text="Indie"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <CheckBox
+            android:id="@+id/pop_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:checked="true"
+            android:clickable="true"
+            android:focusable="auto"
+            android:padding="10dp"
+            android:text="Pop"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <CheckBox
+            android:id="@+id/rock_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:checked="true"
+            android:clickable="true"
+            android:focusable="auto"
+            android:padding="10dp"
+            android:text="Rock"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

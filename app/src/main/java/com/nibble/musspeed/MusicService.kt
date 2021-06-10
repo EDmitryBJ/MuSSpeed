@@ -3,8 +3,13 @@ package com.nibble.musspeed
 import android.content.Context
 import android.media.MediaPlayer
 import android.net.Uri
+import android.os.Handler
+import android.os.Looper
+import android.widget.SeekBar
+import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
 import java.io.File
 import java.io.FileOutputStream
@@ -13,85 +18,54 @@ import java.lang.Exception
 import java.net.URL
 import java.nio.channels.Channels
 import java.nio.channels.ReadableByteChannel
-
-enum class MusicType (val value : Int) {
-    ALTERNATIVE(0),
-    HIPHOP_OR_RAP(1),
-    ROCK(2),
-    POP(3),
-    INDIE(4)
-}
+import kotlin.random.Random
 
 class MusicService(context: Context) {
-    private val storage = Firebase.storage
+    private lateinit var title: TextView
+    private lateinit var mSeekBar: SeekBar
     private val context = context
-    private val tracks =
-        //type
-        mutableListOf(
-        //speed
-        mutableListOf(
-            //path and currentIdx
-            Pair(mutableListOf(
-                R.raw.amy_shark_i_said_hi,
-                R.raw.fanfarlo_luna,
-                R.raw.my_dove_my_lamb,
-                R.raw.the_raconteurs_together,
-                R.raw.the_unlikely_candidates_oh_my_dear_lord,
-                R.raw.tindersticks_the_amputees,
-                R.raw.tom_walker_leave_a_light_on,
-                R.raw.tones_and_i_jimmy,
-                R.raw.zayde_wolf_born_ready),0)
-        )
+    private var tracksTypes = mutableListOf<String>(
+        "Alternative",
+        "Hip-hop.rap",
+        "Indie",
+        "Pop",
+        "Rock"
     )
-    fun play(speed:Int, trackType:MusicType, mediaPlayer: MediaPlayer, mainActivity: MainActivity){
-        try {
-            val alternative0 = storage.reference.child("/Alternative0")
-            val track = alternative0.child("/amy_shark_i_said_hi.mp3")
-            val url = track.downloadUrl.addOnSuccessListener {
-                mediaPlayer.setDataSource(it.toString())
-                mediaPlayer.setOnPreparedListener {
-                    mediaPlayer.start()
-                    Toast.makeText(mainActivity,"Audio started playing", Toast.LENGTH_SHORT).show()
+
+    fun SetTracksTypes(tracksTypes: MutableList<String>){
+        this.tracksTypes = tracksTypes
+    }
+
+    fun Play(speed:Int, mediaPlayer: MediaPlayer, mainActivity: MainActivity){
+        if(mediaPlayer.isPlaying)
+            Stop(mediaPlayer, mainActivity)
+            val musicType = tracksTypes[Random.nextInt(0, tracksTypes.count()-1)]
+            mainActivity.Storage.reference.child("$musicType/").child("$musicType$speed/").listAll().addOnSuccessListener {
+                if(it.items.count()-1>=0){
+                    val trackNum =Random.nextInt(0, it.items.count()-1)
+                    setTrackTitle(it?.items!![trackNum].name.substring(10), mainActivity)
+                    it?.items!![trackNum].downloadUrl.addOnSuccessListener { uri ->
+                        mediaPlayer.setDataSource(uri.toString())
+                        mediaPlayer.setOnPreparedListener {
+                            mediaPlayer.start()
+                            initPlayerController(mainActivity, mediaPlayer)
+                        }
+                        mediaPlayer.prepareAsync()
+                    }
                 }
-                mediaPlayer.prepareAsync()
+                else
+                    Play(speed, mediaPlayer, mainActivity)
             }
-        }catch (e:Exception){
-            e.printStackTrace()
-            Toast.makeText(mainActivity,"Error", Toast.LENGTH_SHORT).show()
-        }
-//        var name =
-//    try {
-//        if(tracks[trackType.value][speed]==null)
-//        {
-//            Toast.makeText(context, "Sorry", Toast.LENGTH_SHORT).show()
-//        }
-//        val trackIdx = tracks[trackType.value][speed].first[tracks[trackType.value][speed].second]
-//        if(mediaPlayer!=null){
-//            mediaPlayer!!.stop()
-//            mediaPlayer!!.reset()
-//            mediaPlayer!!.release()
-//        }
-//        mediaPlayer = MediaPlayer.create(context, trackIdx)
-//        mediaPlayer.setDataSource(context, trackIdx)
-//        mediaPlayer!!.setOnPreparedListener {
-//            mediaPlayer!!.start()
-//            Toast.makeText(context, "Audio started playing.", Toast.LENGTH_SHORT).show()
-//            if(tracks[trackType.value][speed].second + 1 < tracks[trackType.value][speed].first.size)
-//                tracks[trackType.value][speed] = Pair(tracks[trackType.value][speed].first, tracks[trackType.value][speed].second + 1)
-//            else
-//                tracks[trackType.value][speed] = Pair(tracks[trackType.value][speed].first, 0)
-//        }
-//    }catch (e:IOException){
-//        e.printStackTrace()
-//    }
 }
 
-    fun stop(mediaPlayer: MediaPlayer){
+    fun Stop(mediaPlayer: MediaPlayer, mainActivity: MainActivity){
         try {
             if (mediaPlayer.isPlaying) {
                 mediaPlayer.stop()
                 mediaPlayer.reset()
-                mediaPlayer.release()
+                //mediaPlayer.release()
+                initPlayerController(mainActivity, mediaPlayer)
+                setTrackTitle("Маршрут приостановлен", mainActivity)
             }
         }
         catch (e:IOException){
@@ -99,5 +73,29 @@ class MusicService(context: Context) {
         }
     }
 
+    private fun initPlayerController(mainActivity: MainActivity, mediaPlayer: MediaPlayer){
+        mSeekBar = mainActivity.findViewById(R.id.music_progress)
+        if(!mediaPlayer.isPlaying){
+            mSeekBar.progress = 0
+            return
+        }
+        mSeekBar.max = mediaPlayer.duration/1000
+        val mainHandler = Handler(Looper.getMainLooper())
+        mainHandler.post(object : Runnable {
+            override fun run() {
+                try{
+                    mSeekBar.progress = mediaPlayer.currentPosition/1000;
+                    mainHandler.postDelayed(this, 300)
+                }
+                catch (e: Exception){ }
+            }
+        })
+        mSeekBar.progress = 0
+    }
+
+    private fun setTrackTitle(name:String, mainActivity: MainActivity){
+        title = mainActivity.findViewById(R.id.track_title)
+        title.text = name
+    }
 }
 
