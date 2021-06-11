@@ -32,10 +32,6 @@ class MusicService(context: Context) {
         "Rock"
     )
 
-    fun SetTracksTypes(tracksTypes: MutableList<String>){
-        this.tracksTypes = tracksTypes
-    }
-
     fun Play(speed:Int, mediaPlayer: MediaPlayer, mainActivity: MainActivity){
         if(mediaPlayer.isPlaying)
             Stop(mediaPlayer, mainActivity)
