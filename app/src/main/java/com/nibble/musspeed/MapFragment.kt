@@ -103,7 +103,7 @@ class MapFragment(private val mainActivity: MainActivity) : Fragment() {
             override fun onLocationResult(locationResult: LocationResult) {
                 for (location in locationResult.locations){
                     val gMap = mainActivity.map!!
-                    if (location != null && (abs(mainActivity.currentLatitude - location.latitude) >= 0.005 || abs(mainActivity.currentLongitude - location.longitude) >= 0.005)) {
+                    if (location != null && (abs(mainActivity.currentLatitude - location.latitude) >= 0.00005 || abs(mainActivity.currentLongitude - location.longitude) >= 0.00005)) {
                             if(mainActivity.currentLongitude == 0.0 && mainActivity.currentLongitude == 0.0)
                                 gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(location.latitude,location.longitude), 15f))
                             mainActivity.currentLatitude = location.latitude
@@ -133,12 +133,10 @@ class MapFragment(private val mainActivity: MainActivity) : Fragment() {
                 }
             }
         }
-        @Suppress("DEPRECATION")
         if (ActivityCompat.checkSelfPermission(mainActivity, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED )
-            requestPermissions(Array(1){ Manifest.permission.ACCESS_FINE_LOCATION}, 1)
-        @Suppress("DEPRECATION")
+            ActivityCompat.requestPermissions(mainActivity,Array(1){ Manifest.permission.ACCESS_FINE_LOCATION}, 1)
         if(ActivityCompat.checkSelfPermission(mainActivity, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
-            requestPermissions(Array(1){ Manifest.permission.ACCESS_COARSE_LOCATION}, 2)
+            ActivityCompat.requestPermissions(mainActivity, Array(1){ Manifest.permission.ACCESS_COARSE_LOCATION}, 2)
         LocationServices.getFusedLocationProviderClient(mainActivity).requestLocationUpdates(mLocationRequest, mLocationCallback, null)
     }
 
