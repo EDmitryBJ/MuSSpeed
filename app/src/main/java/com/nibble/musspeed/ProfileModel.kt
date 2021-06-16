@@ -20,7 +20,7 @@ class ProfileModel : Model {
 
     override fun OpenWindow(mainActivity: MainActivity) {
         mainActivity.setContentView(R.layout.profile_settings)
-        mainActivity.InitNavBar()
+        mainActivity.initNavBar()
         initializeSelectionMenu(mainActivity)
     }
 

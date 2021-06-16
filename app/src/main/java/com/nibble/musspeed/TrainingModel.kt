@@ -4,7 +4,7 @@ class TrainingModel : Model {
 
     override fun OpenWindow(mainActivity: MainActivity) {
         mainActivity.setContentView(R.layout.training_selection)
-        mainActivity.InitNavBar()
+        mainActivity.initNavBar()
     }
 
     override fun CloseWindow(mainActivity: MainActivity) {

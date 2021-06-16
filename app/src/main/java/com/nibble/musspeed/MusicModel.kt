@@ -11,7 +11,7 @@ class MusicModel : Model {
 
     override fun OpenWindow(mainActivity: MainActivity) {
         mainActivity.setContentView(R.layout.music_selection)
-        mainActivity.InitNavBar()
+        mainActivity.initNavBar()
         initCheckBoxes(mainActivity)
     }
 

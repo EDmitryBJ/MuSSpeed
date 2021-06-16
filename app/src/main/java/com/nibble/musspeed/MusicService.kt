@@ -2,28 +2,17 @@ package com.nibble.musspeed
 
 import android.content.Context
 import android.media.MediaPlayer
-import android.net.Uri
 import android.os.Handler
 import android.os.Looper
 import android.widget.SeekBar
 import android.widget.TextView
-import android.widget.Toast
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.ktx.storage
-import java.io.File
-import java.io.FileOutputStream
 import java.io.IOException
 import java.lang.Exception
-import java.net.URL
-import java.nio.channels.Channels
-import java.nio.channels.ReadableByteChannel
 import kotlin.random.Random
 
 class MusicService(context: Context) {
     private lateinit var title: TextView
     private lateinit var mSeekBar: SeekBar
-    private val context = context
     private var tracksTypes = mutableListOf<String>(
         "Alternative",
         "Hip-hop.rap",
@@ -32,11 +21,19 @@ class MusicService(context: Context) {
         "Rock"
     )
 
-    fun Play(speed:Int, mediaPlayer: MediaPlayer, mainActivity: MainActivity){
+    fun Play(mediaPlayer: MediaPlayer, mainActivity: MainActivity){
         if(mediaPlayer.isPlaying)
             Stop(mediaPlayer, mainActivity)
-            val musicType = tracksTypes[Random.nextInt(0, tracksTypes.count()-1)]
-            mainActivity.Storage.reference.child("$musicType/").child("$musicType$speed/").listAll().addOnSuccessListener {
+        mainActivity.firstTime = mainActivity.timeLeft
+        mainActivity.firstPath = mainActivity.currentPath
+        val musicType = tracksTypes[Random.nextInt(0, tracksTypes.count()-1)]
+        mediaPlayer.setOnCompletionListener {
+            mainActivity.calculateDeltas()
+            mainActivity.calculateNextTrackSpeed()
+            Stop(mediaPlayer, mainActivity)
+            Play(mediaPlayer,mainActivity)
+        }
+        mainActivity.storage.reference.child("$musicType/").child("$musicType${mainActivity.currentMusicSpeed}/").listAll().addOnSuccessListener {
                 if(it.items.count()-1>=0){
                     val trackNum =Random.nextInt(0, it.items.count()-1)
                     setTrackTitle(it?.items!![trackNum].name.substring(10), mainActivity)
@@ -50,7 +47,7 @@ class MusicService(context: Context) {
                     }
                 }
                 else
-                    Play(speed, mediaPlayer, mainActivity)
+                    Play(mediaPlayer, mainActivity)
             }
 }
 
@@ -59,7 +56,6 @@ class MusicService(context: Context) {
             if (mediaPlayer.isPlaying) {
                 mediaPlayer.stop()
                 mediaPlayer.reset()
-                //mediaPlayer.release()
                 initPlayerController(mainActivity, mediaPlayer)
                 setTrackTitle("Маршрут приостановлен", mainActivity)
             }
@@ -73,15 +69,17 @@ class MusicService(context: Context) {
         mSeekBar = mainActivity.findViewById(R.id.music_progress)
         if(!mediaPlayer.isPlaying){
             mSeekBar.progress = 0
+            mainActivity.trackRemainingTime = Int.MAX_VALUE
             return
         }
         mSeekBar.max = mediaPlayer.duration/1000
-        val mainHandler = Handler(Looper.getMainLooper())
-        mainHandler.post(object : Runnable {
+        val musicProgressHandler = Handler(Looper.getMainLooper())
+        musicProgressHandler.post(object : Runnable {
             override fun run() {
                 try{
-                    mSeekBar.progress = mediaPlayer.currentPosition/1000;
-                    mainHandler.postDelayed(this, 300)
+                    mSeekBar.progress = mediaPlayer.currentPosition/1000
+                    musicProgressHandler.postDelayed(this, 300)
+                    mainActivity.trackRemainingTime = mediaPlayer.duration - mediaPlayer.currentPosition
                 }
                 catch (e: Exception){ }
             }
